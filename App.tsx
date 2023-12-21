@@ -18,7 +18,10 @@ const NextPage = ({navigation}: {navigation: any}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>The Next Page</Text>
-      <Button title="Go Back" onPress={() => navigation.goBack()} />
+      <Button
+        title="Press here to go back"
+        onPress={() => navigation.goBack()}
+      />
     </SafeAreaView>
   );
 };

@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 18.13
-    name: NPM Install
-    run: npm ci
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18.13
+      - name: NPM Install
+        run: npm ci

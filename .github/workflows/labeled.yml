@@ -18,4 +18,4 @@ jobs:
       - name: NPM Install
         run: npm ci
       - name: Run something random
-        run: echo "$GITHUB_EVENT_NAME"
+        run: echo ${{ github.event }}

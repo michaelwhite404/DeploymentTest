@@ -2,7 +2,7 @@ name: Test Labeled Workflow
 
 on:
   pull_request:
-  types: [labeled]
+    types: [labeled]
 
 jobs:
   test:

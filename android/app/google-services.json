@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "749217962238",
+    "project_id": "deployment-test-bd952",
+    "storage_bucket": "deployment-test-bd952.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749217962238:android:c0623e05cb5a615379edaf",
+        "android_client_info": {
+          "package_name": "com.deploymenttest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKN1x0oZLl4Lj72_RwfJR2q2FGoDtWfOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

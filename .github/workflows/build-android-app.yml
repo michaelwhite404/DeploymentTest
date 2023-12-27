@@ -25,4 +25,4 @@ jobs:
           bundler-cache: true
           working-directory: 'android'
       - name: Distribute to Firebase
-        run: bundle exec fastlane distribute
+        run: cd android && bundle exec fastlane distribute

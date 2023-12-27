@@ -11,4 +11,5 @@ jobs:
     uses: ./.github/workflows/mobile-app-build.yml
     with:
       build-name: ${{ null }}
-      build-type: 'test'
+      build-type: test
+    secrets: inherit

@@ -20,6 +20,7 @@ platform :android do
   lane :distribute do |options|
     UI.message options
     UI.message last_git_commit
+    UI.message git_branch
     if (options[:build_type] === 'test')
       commit = last_git_commit
       hash = commit[:abbreviated_commit_hash]

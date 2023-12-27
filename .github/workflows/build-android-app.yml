@@ -8,7 +8,7 @@ jobs:
   test:
     if: github.event.label.name == 'Build'
     name: Build Android App
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -22,7 +22,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.6'
-      - name: Install Fastlane
-        run: cd android && bundle install
+          bundler-cache: true
       - name: Distribute to Firebase
-        run: bundle exec fastlane distribute
+        uses: maierj/fastlane-action@v3.0.0
+        with:
+          lane: 'distribute'
+          subdirectory: 'android'

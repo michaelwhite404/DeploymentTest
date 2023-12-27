@@ -6,7 +6,6 @@ on:
       build-name:
         required: true
         type: string
-    secrets: inherit
   workflow_dispatch:
     inputs:
       build-name:

@@ -12,3 +12,4 @@ jobs:
     uses: ./.github/workflows/build-android-app.yml
     with:
       build-name: ${{ github.event.inputs.build-name }}
+    secrets: inherit

@@ -18,12 +18,12 @@ jobs:
     name: Build Android App
     uses: ./.github/workflows/mobile-app-android-build.yml
     with:
-      build-name: ${{ github.event.inputs.build-name }}
-      build-type: ${{ github.event.inputs.build-type || 'manual' }}
+      build-name: ${{ inputs.build-name }}
+      build-type: ${{ inputs.build-type || 'manual' }}
     secrets: inherit
   build-ios-app:
     name: Build iOS App
     uses: ./.github/workflows/mobile-app-ios-build.yml
     with:
-      build-name: ${{ github.event.inputs.build-name }}
+      build-name: ${{ inputs.build-name }}
     secrets: inherit

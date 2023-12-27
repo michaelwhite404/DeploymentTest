@@ -19,12 +19,12 @@ jobs:
     name: Build iOS App
     runs-on: macos-latest
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 18.17
-    - name: NPM Install
-      run: npm ci
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.17
+      - name: NPM Install
+        run: npm ci

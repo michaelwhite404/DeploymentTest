@@ -20,7 +20,8 @@ jobs:
         run: npm ci
       - name: Setup Ruby
         run: ruby/setup-ruby@v1
-        with: '2.7.6'
+        with:
+          ruby-version: '2.7.6'
       - name: Install Fastlane
         run: cd android && bundle install
       - name: Distribute to Firebase

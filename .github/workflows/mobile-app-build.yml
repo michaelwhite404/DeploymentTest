@@ -1,4 +1,4 @@
-name: Mobile Distribute
+name: Build iOS and Android Apps
 
 on:
   workflow_dispatch:

@@ -21,7 +21,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0.2'
+          ruby-version: '2.6'
       - name: Install Fastlane
         run: cd android && bundle install
       - name: Distribute to Firebase

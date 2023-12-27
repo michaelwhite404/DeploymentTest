@@ -22,9 +22,11 @@ platform :android do
     UI.message last_git_commit
     UI.message git_branch
     if (options[:build_type] === 'test')
-      commit = last_git_commit
-      hash = commit[:abbreviated_commit_hash]
-      branch = git_branch
+      hash = options[:hash]
+      branch = options[:branch]
+      # commit = last_git_commit
+      # hash = commit[:abbreviated_commit_hash]
+      # branch = git_branch
       android_set_version_name(version_name: "#{hash}-#{branch}")
     elsif (options[:build_name])
       android_set_version_name(version_name: options[:build_name])

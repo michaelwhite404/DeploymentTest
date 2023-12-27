@@ -26,10 +26,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -52,7 +48,7 @@ jobs:
         with:
           lane: 'distribute'
           subdirectory: 'android'
-          options: '{ "build_name": "${{ inputs.build-name }}", "build_type":  "${{ inputs.build-type }}"}'
+          options: '{ "build_name": "${{ inputs.build-name }}", "build_type": "${{ inputs.build-type }}", "hash": "${{ github.event.pull_request.head.sha }}", "branch": "${{ github.event.pull_request.head.ref }}", }'
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

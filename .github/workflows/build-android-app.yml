@@ -1,12 +1,17 @@
 name: Build Android App
 
 on:
-  pull_request:
-    types: [labeled]
+  workflow_dispatch:
+    inputs:
+      build-name:
+        required: true
+        type: string
+  # pull_request:
+  #   types: [labeled]
 
 jobs:
   test:
-    if: github.event.label.name == 'Build'
+    # if: github.event.label.name == 'Build'
     name: Build Android App
     runs-on: macos-latest
 
@@ -34,6 +39,7 @@ jobs:
         with:
           lane: 'distribute'
           subdirectory: 'android'
+          options: '{ "option1": ${{ github.event.inputs.build-name }} }'
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

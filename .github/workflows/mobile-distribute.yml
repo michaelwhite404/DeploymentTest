@@ -9,7 +9,14 @@ on:
 
 jobs:
   build-android-app:
-    uses: ./.github/workflows/build-android-app.yml
+    name: Build Android App
+    uses: ./.github/workflows/mobile-app-android-build.yml
+    with:
+      build-name: ${{ github.event.inputs.build-name }}
+    secrets: inherit
+  build-ios-app:
+    name: Build iOS App
+    uses: ./.github/workflows/mobile-app-ios-build.yml
     with:
       build-name: ${{ github.event.inputs.build-name }}
     secrets: inherit

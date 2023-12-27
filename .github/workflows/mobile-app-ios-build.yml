@@ -1,0 +1,30 @@
+name: Build iOS App
+
+on:
+  workflow_call:
+    inputs:
+      build-name:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      build-name:
+        required: true
+        type: string
+
+jobs:
+  build-ios:
+    # Will implement ios build later later
+    if: false
+    name: Build iOS App
+    runs-on: macos-latest
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18.17
+    - name: NPM Install
+      run: npm ci

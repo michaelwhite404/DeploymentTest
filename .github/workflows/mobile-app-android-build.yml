@@ -4,8 +4,14 @@ on:
   workflow_call:
     inputs:
       build-name:
-        required: true
         type: string
+      build-type:
+        type: choice
+        options:
+          - manual
+          - test
+          - prerelease
+          - release
   workflow_dispatch:
     inputs:
       build-name:
@@ -45,7 +51,7 @@ jobs:
         with:
           lane: 'distribute'
           subdirectory: 'android'
-          options: '{ "build_name": "${{ github.event.inputs.build-name }}" }'
+          options: '{ "build_name": "${{ github.event.inputs.build-name }}", "build_type":  "${{ github.event.inputs.build-type }}"}'
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

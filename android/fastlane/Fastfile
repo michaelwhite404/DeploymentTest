@@ -18,7 +18,12 @@ default_platform(:android)
 platform :android do
   desc "Distribute to Firebase"
   lane :distribute do |options|
-    if (options[:build_name])
+    if (options[:build_type] === 'test')
+      commit = last_git_commit
+      hash = commit[:abbreviated_commit_hash]
+      branch = git_branch
+      android_set_version_name(version_name: "#{hash}-#{branch}")
+    elsif (options[:build_name])
       android_set_version_name(version_name: options[:build_name])
     end
     gradle(task: "clean assembleDebug")

@@ -1,6 +1,17 @@
 name: Build iOS and Android Apps
 
 on:
+  workflow_call:
+    inputs:
+      build-name:
+        type: string
+      build-type:
+        type: choice
+        options:
+          - manual
+          - test
+          - prerelease
+          - release
   workflow_dispatch:
     inputs:
       build-name:
@@ -13,6 +24,7 @@ jobs:
     uses: ./.github/workflows/mobile-app-android-build.yml
     with:
       build-name: ${{ github.event.inputs.build-name }}
+      build-type: ${{ github.event.inputs.build-type || 'manual' }}
     secrets: inherit
   build-ios-app:
     name: Build iOS App

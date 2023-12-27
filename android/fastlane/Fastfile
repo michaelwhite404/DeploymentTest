@@ -18,6 +18,8 @@ default_platform(:android)
 platform :android do
   desc "Distribute to Firebase"
   lane :distribute do |options|
+    UI.message options
+    UI.message commit
     if (options[:build_type] === 'test')
       commit = last_git_commit
       hash = commit[:abbreviated_commit_hash]
@@ -26,11 +28,11 @@ platform :android do
     elsif (options[:build_name])
       android_set_version_name(version_name: options[:build_name])
     end
-    gradle(task: "clean assembleDebug")
-    firebase_app_distribution(
-      app: ENV['FIREBASE_PROJECT_ID'],
-      firebase_cli_token: ENV['FIREBASE_TOKEN'],
-      android_artifact_type: 'APK'
-    )
+    # gradle(task: "clean assembleDebug")
+    # firebase_app_distribution(
+    #   app: ENV['FIREBASE_PROJECT_ID'],
+    #   firebase_cli_token: ENV['FIREBASE_TOKEN'],
+    #   android_artifact_type: 'APK'
+    # )
   end
 end

@@ -25,7 +25,6 @@ jobs:
             {
               "Developers": { "groups": "mobile-devs" },
               "Designers": { "groups": "mobile-designers" },
-              "Quality Engineers": { "groups": "mobile-qe" },
               "Accessibility": { "groups": "mobile-a11y" }
             }
           export_to: output

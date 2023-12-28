@@ -9,4 +9,5 @@ jobs:
     uses: ./.github/workflows/mobile-app-build.yml
     with:
       build-type: 'release'
+      test-groups: 'All Groups'
     secrets: inherit

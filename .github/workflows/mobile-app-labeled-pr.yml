@@ -12,5 +12,5 @@ jobs:
     with:
       build-name: ${{ null }}
       build-type: 'test'
-      test-groups: github.event.label.name == 'Ready for A11y' && 'mobile-ally' || 'mobile-qe'
+      test-groups: ${{ github.event.label.name == 'Ready for A11y' && 'mobile-ally' || 'mobile-qe' }}
     secrets: inherit

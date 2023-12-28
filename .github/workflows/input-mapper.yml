@@ -14,18 +14,18 @@ on:
           # - Accessibility
 
 env:
-  GROUP: >
+  TESTING_GROUPS: >
     ${{ fromJson('{
       "Developers": "mobile-devs",
-      "Designers": "mobile-designers"
+      "Designers": "mobile-designers",
+      "Quality Engineers": "mobile-qe",
+      "Accessibility": "mobile-a11y"
     }')[inputs.groups] }}
 
 jobs:
   map:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          mv .env.$GROUP .env
       # - uses: kanga333/variable-mapper@master
       #   id: export
       #   with:

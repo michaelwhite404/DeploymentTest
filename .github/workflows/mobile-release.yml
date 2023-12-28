@@ -3,12 +3,13 @@ name: Deploy Mobile App Release
 on:
   workflow_dispatch:
   push:
-    branches: [releases/*]
+    branches: [release/*]
     # paths: []
 
 jobs:
-  name: Create Release build
-  uses: ./.github/workflows/mobile-app-build.yml
-  with:
-    build-type: 'prerelease'
-  secrets: inherit
+  prerelease:
+    name: Create Release build
+    uses: ./.github/workflows/mobile-app-build.yml
+    with:
+      build-type: 'prerelease'
+    secrets: inherit

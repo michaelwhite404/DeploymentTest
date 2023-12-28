@@ -24,6 +24,7 @@ on:
           - Designers
           - Quality Engineers
           - Accessibility
+          - Devs & QE
           - All Groups
 
 env:
@@ -33,6 +34,7 @@ env:
       "Designers": "mobile-designers",
       "Quality Engineers": "mobile-qe",
       "Accessibility": "mobile-a11y",
+      "Devs & QE": "mobile-devs, mobile-qe",
       "All Groups": "mobile-devs, mobile-designers, mobile-qe, mobile-a11y"
     }')[inputs.test-groups] }}
 

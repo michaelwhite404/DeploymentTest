@@ -11,5 +11,6 @@ jobs:
     name: Create Release build
     uses: ./.github/workflows/mobile-app-build.yml
     with:
-      build-type: 'prerelease'
+      build-type: prerelease
+      test-groups: Devs & QE
     secrets: inherit

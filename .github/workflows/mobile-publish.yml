@@ -8,6 +8,6 @@ jobs:
     name: 'Publish Release Build'
     uses: ./.github/workflows/mobile-app-build.yml
     with:
-      build-type: 'release'
-      test-groups: 'All Groups'
+      build-type: release
+      test-groups: All Groups
     secrets: inherit

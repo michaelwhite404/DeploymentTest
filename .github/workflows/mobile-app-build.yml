@@ -24,6 +24,7 @@ on:
           - Designers
           - Quality Engineers
           - Accessibility
+          - Devs & QE
           - All Groups
 
 jobs:

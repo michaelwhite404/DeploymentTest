@@ -8,7 +8,7 @@ const Tab = createNativeStackNavigator();
 const HomeScreen = ({navigation}: {navigation: any}) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Deployment Test</Text>
+      <Text style={styles.text}>Label Test</Text>
       <Button title="Next Page" onPress={() => navigation.navigate('Next')} />
     </SafeAreaView>
   );

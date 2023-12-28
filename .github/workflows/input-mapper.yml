@@ -2,16 +2,16 @@ name: Map Input
 
 on:
   workflow_dispatch:
-  inputs:
-    groups:
-      type: choice
-      description: Send build to which grou?
-      required: true
-      options:
-        - Developers
-        - Designers
-        - Quality Engineers
-        - Accessibility
+    inputs:
+      groups:
+        type: choice
+        description: Send build to which grou?
+        required: true
+        options:
+          - Developers
+          - Designers
+          - Quality Engineers
+          - Accessibility
 
 jobs:
   map:

@@ -10,8 +10,8 @@ on:
         options:
           - Developers
           - Designers
-          # - Quality Engineers
-          # - Accessibility
+          - Quality Engineers
+          - Accessibility
 
 env:
   TESTING_GROUPS: >
@@ -40,4 +40,4 @@ jobs:
       #     export_to: output
       - name: Echo environment and output
         run: |
-          echo ${{ fromJSON(env) }}
+          echo ${{env.TESTING_GROUPS }}

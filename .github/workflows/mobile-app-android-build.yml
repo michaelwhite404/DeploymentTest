@@ -26,7 +26,7 @@ on:
           - Accessibility
           - Devs & QE
           - All Groups
-          
+
 jobs:
   build-android:
     name: Build Android App
@@ -62,7 +62,7 @@ jobs:
           options: '{
             "build_name": "${{ inputs.build-name }}",
             "build_type": "${{ inputs.build-type }}", 
-            "test_groups": "${{ inputs.test-groups }},
+            "test_groups": "${{ inputs.test-groups }}",
             "hash": "${{ github.event.pull_request.head.sha }}",
             "branch": "${{ github.event.pull_request.head.ref }}"
           }'

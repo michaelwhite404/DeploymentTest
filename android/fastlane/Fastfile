@@ -37,7 +37,7 @@ platform :android do
     elsif (options[:build_name])
       android_set_version_name(version_name: options[:build_name])
     end
-    UI.message ENV['TEST_GROUPS']
+    UI.message ENV['TEST_GROUPS'].strip
     # gradle(task: "clean assembleDebug")
     # firebase_app_distribution(
     #   app: ENV['FIREBASE_PROJECT_ID'],

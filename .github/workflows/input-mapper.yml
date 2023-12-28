@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          move-file .env.$GROUP .env
+          mv .env.$GROUP .env
       # - uses: kanga333/variable-mapper@master
       #   id: export
       #   with:

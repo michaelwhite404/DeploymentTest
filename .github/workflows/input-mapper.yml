@@ -5,7 +5,7 @@ on:
     inputs:
       groups:
         type: choice
-        description: Send build to which grou?
+        description: Send build to which group?
         required: true
         options:
           - Developers
@@ -26,7 +26,7 @@ jobs:
               "Developers": { "groups": "mobile-devs" },
               "Designers": { "groups": "mobile-designers" },
               "Quality Engineers": { "groups": "mobile-qe" },
-              "Accessibility": { "groups": "mobile-a11y" },
+              "Accessibility": { "groups": "mobile-a11y" }
             }
           export_to: output
       - name: Echo environment and output

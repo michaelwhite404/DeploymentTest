@@ -38,12 +38,12 @@ platform :android do
       android_set_version_name(version_name: options[:build_name])
     end
     UI.message ENV['TEST_GROUPS'].strip
-    # gradle(task: "clean assembleDebug")
-    # firebase_app_distribution(
-    #   app: ENV['FIREBASE_PROJECT_ID'],
-    #   firebase_cli_token: ENV['FIREBASE_TOKEN'],
-    #   groups: ENV['TEST_GROUPS'],
-    #   android_artifact_type: 'APK'
-    # )
+    gradle(task: "clean assembleDebug")
+    firebase_app_distribution(
+      app: ENV['FIREBASE_PROJECT_ID'],
+      firebase_cli_token: ENV['FIREBASE_TOKEN'],
+      groups: ENV['TEST_GROUPS'],
+      android_artifact_type: 'APK'
+    )
   end
 end

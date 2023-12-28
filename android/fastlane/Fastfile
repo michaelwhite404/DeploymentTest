@@ -26,6 +26,10 @@ platform :android do
       # hash = commit[:abbreviated_commit_hash]
       # branch = git_branch
       android_set_version_name(version_name: "#{abbr_hash}-#{branch}")
+    elsif (options[:build_type] === 'prerelease')
+      package_json = load_json(json_path: "../../package.json")
+      version = package_json['version']
+      android_set_version_name(version_name: version)
     elsif (options[:build_name])
       android_set_version_name(version_name: options[:build_name])
     end
@@ -35,5 +39,11 @@ platform :android do
       firebase_cli_token: ENV['FIREBASE_TOKEN'],
       android_artifact_type: 'APK'
     )
+  end
+
+  lane :get_v do
+    package_json = load_json(json_path: "../package.json")
+    version = package_json['version']
+    UI.message version
   end
 end

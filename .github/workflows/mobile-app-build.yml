@@ -26,16 +26,6 @@ on:
           - Accessibility
           - All Groups
 
-env:
-  TEST_GROUPS: >
-    ${{ fromJson('{
-      "Developers": "mobile-devs",
-      "Designers": "mobile-designers",
-      "Quality Engineers": "mobile-qe",
-      "Accessibility": "mobile-a11y",
-      "All Groups": "mobile-devs, mobile-designers, mobile-qe, mobile-a11y"
-    }')[inputs.groups] }}
-
 jobs:
   build-android-app:
     name: Build Android App

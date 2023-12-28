@@ -1,0 +1,34 @@
+name: Map Input
+
+on:
+  workflow_dispatch:
+  inputs:
+    groups:
+      type: choice
+      description: Send build to which grou?
+      required: true
+      options:
+        - Developers
+        - Designers
+        - Quality Engineers
+        - Accessibility
+
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kanga333/variable-mapper@master
+        id: export
+        with:
+          key: '${{ inputs.groups }}'
+          map: |
+            {
+              "Developers": { "groups": "mobile-devs" },
+              "Designers": { "groups": "mobile-designers" },
+              "Quality Engineers": { "groups": "mobile-qe" },
+              "Accessibility": { "groups": "mobile-a11y" },
+            }
+          export_to: output
+      - name: Echo environment and output
+        run: |
+          echo ${{ steps.export.outputs.groups }}

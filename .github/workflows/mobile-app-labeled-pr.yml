@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     if: github.event.label.name == 'Ready for A11y' || github.event.label.name == 'Ready for QE'
-    name: Build From Latest Commit
+    name: Build From Latest PR Commit
     uses: ./.github/workflows/mobile-app-build.yml
     with:
       build-name: ${{ null }}

@@ -23,7 +23,7 @@ platform :android do
     UI.message git_branch
     if (options[:build_type] === 'test')
       hash = options[:hash]
-      abbr_hash = hash.[0..6]
+      abbr_hash = hash[0..6]
       branch = options[:branch]
       # commit = last_git_commit
       # hash = commit[:abbreviated_commit_hash]

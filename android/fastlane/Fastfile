@@ -27,7 +27,7 @@ platform :android do
       # branch = git_branch
       android_set_version_name(version_name: "#{abbr_hash}-#{branch}")
     elsif (options[:build_type] === 'prerelease')
-      package_json = load_json(json_path: "../../package.json")
+      package_json = load_json(json_path: "../package.json")
       version = package_json['version']
       android_set_version_name(version_name: "Pre-Release: v#{version}")
     elsif (options[:build_name])

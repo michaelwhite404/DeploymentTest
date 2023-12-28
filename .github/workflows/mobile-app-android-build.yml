@@ -71,7 +71,7 @@ jobs:
           options: '{ 
             "build_name": "${{ inputs.build-name }}",
             "build_type": "${{ inputs.build-type }}", 
-            "test_groups": "${{ env.TEST_GROUPS }}",
+            "test_groups": ${{ env.TEST_GROUPS }},
             "hash": "${{ github.event.pull_request.head.sha }}",
             "branch": "${{ github.event.pull_request.head.ref }}"
           }'

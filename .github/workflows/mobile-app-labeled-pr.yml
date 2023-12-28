@@ -4,16 +4,13 @@ on:
   pull_request:
     types: [labeled]
 
-env:
-  LABEL_NAME: ${{ github.event.label.name }}
-
 jobs:
   test:
-    if: ${{ env.LABEL_NAME }} == 'Ready for A11y' || ${{ env.LABEL_NAME }} == 'Ready for QE'
+    if: github.event.label.name == 'Ready for A11y' || github.event.label.name == 'Ready for QE'
     name: Build From Latest PR Commit
     uses: ./.github/workflows/mobile-app-build.yml
     with:
       build-name: ${{ null }}
       build-type: 'test'
-      test-groups: ${{ env.LABEL_NAME }} == 'Ready for A11y' && 'mobile-ally' || 'mobile-qe'
+      test-groups: github.event.label.name == 'Ready for A11y' && 'mobile-ally' || 'mobile-qe'
     secrets: inherit

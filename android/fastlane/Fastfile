@@ -18,9 +18,6 @@ default_platform(:android)
 platform :android do
   desc "Distribute to Firebase"
   lane :distribute do |options|
-    UI.message options
-    UI.message last_git_commit
-    UI.message git_branch
     if (options[:build_type] === 'test')
       hash = options[:hash]
       abbr_hash = hash[0..6]

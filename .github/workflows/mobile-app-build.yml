@@ -12,6 +12,7 @@ on:
       build-name:
         required: true
         type: string
+        description: Build Name
 
 jobs:
   build-android-app:

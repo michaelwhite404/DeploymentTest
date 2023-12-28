@@ -41,8 +41,8 @@ platform :android do
     firebase_app_distribution(
       app: ENV['FIREBASE_PROJECT_ID'],
       firebase_cli_token: ENV['FIREBASE_TOKEN'],
+      groups: ENV['TEST_GROUPS']
       android_artifact_type: 'APK'
-      groups: options[:test_groups]
     )
   end
 end

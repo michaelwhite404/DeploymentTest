@@ -71,10 +71,10 @@ jobs:
           options: '{ 
             "build_name": "${{ inputs.build-name }}",
             "build_type": "${{ inputs.build-type }}", 
-            "test_groups": ${{ env.TEST_GROUPS }},
             "hash": "${{ github.event.pull_request.head.sha }}",
             "branch": "${{ github.event.pull_request.head.ref }}"
           }'
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          TEST_GROUPS: ${{ env.TEST_GROUPS }}

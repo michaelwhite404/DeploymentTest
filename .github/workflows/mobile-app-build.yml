@@ -7,12 +7,34 @@ on:
         type: string
       build-type:
         type: string
+      test-groups:
+        type: string
   workflow_dispatch:
     inputs:
       build-name:
         required: true
         type: string
         description: Build Name
+      test-groups:
+        type: choice
+        description: Send build to which group?
+        required: true
+        options:
+          - Developers
+          - Designers
+          - Quality Engineers
+          - Accessibility
+          - All Groups
+
+env:
+  TEST_GROUPS: >
+    ${{ fromJson('{
+      "Developers": "mobile-devs",
+      "Designers": "mobile-designers",
+      "Quality Engineers": "mobile-qe",
+      "Accessibility": "mobile-a11y",
+      "All Groups": "mobile-devs, mobile-designers, mobile-qe, mobile-a11y"
+    }')[inputs.groups] }}
 
 jobs:
   build-android-app:
@@ -21,6 +43,7 @@ jobs:
     with:
       build-name: ${{ inputs.build-name }}
       build-type: ${{ inputs.build-type || 'manual' }}
+      test-groups: ${{ inputs.test-groups }}
     secrets: inherit
   build-ios-app:
     name: Build iOS App

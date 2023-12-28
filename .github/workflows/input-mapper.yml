@@ -12,32 +12,22 @@ on:
           - Designers
           - Quality Engineers
           - Accessibility
+          - All Groups
 
 env:
-  TESTING_GROUPS: >
+  TEST_GROUPS: >
     ${{ fromJson('{
       "Developers": "mobile-devs",
       "Designers": "mobile-designers",
       "Quality Engineers": "mobile-qe",
-      "Accessibility": "mobile-a11y"
+      "Accessibility": "mobile-a11y",
+      "All Groups": "mobile-devs, mobile-designers, mobile-qe, mobile-a11y"
     }')[inputs.groups] }}
 
 jobs:
   map:
     runs-on: ubuntu-latest
     steps:
-      # - uses: kanga333/variable-mapper@master
-      #   id: export
-      #   with:
-      #     key: '${{ inputs.groups }}'
-      #     map: |
-      #       {
-      #         "Developers": { "groups": "mobile-devs" },
-      #         "Designers": { "groups": "mobile-designers" },
-      #         "Quality Engineers": { "groups": "mobile-qe" },
-      #         "Accessibility": { "groups": "mobile-a11y" }
-      #       }
-      #     export_to: output
       - name: Echo environment and output
         run: |
-          echo ${{env.TESTING_GROUPS }}
+          echo ${{env.TEST_GROUPS }}

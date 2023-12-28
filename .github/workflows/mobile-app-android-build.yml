@@ -7,18 +7,37 @@ on:
         type: string
       build-type:
         type: string
+      test-groups:
+        type: string
   workflow_dispatch:
     inputs:
       build-name:
         required: true
         type: string
         description: Build Name
-  # pull_request:
-  #   types: [labeled]
+      test-groups:
+        type: choice
+        description: Send build to which group?
+        required: true
+        options:
+          - Developers
+          - Designers
+          - Quality Engineers
+          - Accessibility
+          - All Groups
+
+env:
+  TEST_GROUPS: >
+    ${{ fromJson('{
+      "Developers": "mobile-devs",
+      "Designers": "mobile-designers",
+      "Quality Engineers": "mobile-qe",
+      "Accessibility": "mobile-a11y",
+      "All Groups": "mobile-devs, mobile-designers, mobile-qe, mobile-a11y"
+    }')[inputs.test-groups] }}
 
 jobs:
   build-android:
-    # if: github.event.label.name == 'Build'
     name: Build Android App
     runs-on: macos-latest
 
@@ -49,7 +68,7 @@ jobs:
         with:
           lane: 'distribute'
           subdirectory: 'android'
-          options: '{ "build_name": "${{ inputs.build-name }}", "build_type": "${{ inputs.build-type }}", "hash": "${{ github.event.pull_request.head.sha }}", "branch": "${{ github.event.pull_request.head.ref }}" }'
+          options: '{ "build_name": "${{ inputs.build-name }}", "build_type": "${{ inputs.build-type }}", "hash": "${{ github.event.pull_request.head.sha }}", "branch": "${{ github.event.pull_request.head.ref }}", "test_groups": "${{ inputs.test-groups }}" }'
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

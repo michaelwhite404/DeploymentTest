@@ -1,0 +1,12 @@
+name: Publish Mobile App Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: 'Publish Release Build'
+    uses: ./.github/workflows/mobile-app-build.yml
+    with:
+      build-type: 'release'
+    secrets: inherit
